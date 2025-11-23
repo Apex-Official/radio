@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منصة تعليمي - تصميم متقدم</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root {
@@ -22,7 +22,9 @@
   margin: 0;
   padding: 0;
 }
-
+body, h1, h2, h3, h4, h5, h6, p, a, li, span {
+  font-family: 'Cairo', sans-serif;
+}
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-dark);
@@ -53,46 +55,10 @@ header {
   justify-content: space-between;
 }
 .logo {
-  font-size: 1.8rem;
+  font-size: 0.7rem;
   font-weight: bold;
+  font-family: 'Cairo', sans-serif;
   color: var(--primary-color);
-}
-nav ul {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-}
-nav li a {
-  color: var(--text-light);
-  font-weight: 500;
-  transition: color 0.3s;
-}
-nav li a:hover {
-  color: var(--primary-color);
-}
-.auth-buttons a {
-  padding: 8px 18px;
-  border-radius: 6px;
-  font-weight: 500;
-  margin-left: 5px;
-  transition: 0.3s;
-}
-.btn-login {
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-}
-.btn-login:hover {
-  background-color: #b30000;
-}
-.btn-register {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-}
-.btn-register:hover {
-  background-color: var(--primary-color);
-  color: #fff;
 }
 
 /* Banner */
@@ -176,16 +142,21 @@ nav li a:hover {
   box-shadow: 0 10px 25px rgba(255,0,60,0.5);
 }
 .card img {
-  width: 100%;
-  height: 160px;
-  object-fit: contain;
-  margin-top: 15px;
+  width: 120px;        /* حجم دائري مناسب */
+  height: 120px;       /* نفس العرض للحصول على دائرة */
+  object-fit: cover;   /* يملأ الدائرة بدون تشويه */
+  margin: 15px auto;   /* يضع الصورة في المنتصف */
+  display: block;
+  border-radius: 50%;  /* أهم حاجة تخليها دائرية */
+  border: 2px solid var(--primary-color); /* إطار اختياري */
+  box-shadow: 0 0 10px rgba(255,0,60,0.4); /* لمسة نيون خفيفة */
 }
 .card-body {
   padding: 15px 20px;
 }
 .card-body h3 {
   font-size: 1.3rem;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 10px;
   color: var(--primary-color);
 }
@@ -205,6 +176,7 @@ nav li a:hover {
 
 /* ===== لماذا نحن Section ===== */
 .why-us{
+  
   padding:75px 20px;
   text-align:center;
 }
@@ -299,8 +271,8 @@ nav li a:hover {
   cursor: pointer;
 }
 .faq-item:hover { background: rgba(255,0,60,0.1); }
-.faq-question { font-weight: 600; }
-.faq-answer { display: none; margin-top: 10px; color: #ccc; }
+.faq-question { font-weight: 600;font-family: 'Cairo', sans-serif; }
+.faq-answer { display: none; margin-top: 10px; color: #ccc;font-family: 'Cairo', sans-serif; }
 
 /* Footer */
 footer {
@@ -371,28 +343,209 @@ footer {
 .why-us p.visible {
   transform: translateY(-15px); /* رفع بمقدار 8px */
  }
+  /* زر تبديل الثيم */
+.theme-toggle {
+  font-size: 25px;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(40px);
+}
+.theme-toggle:hover {
+  transform: scale(1);
+  }
+
+/* Light Mode */
+.light-mode {
+  --bg-dark: #ffffff;
+  --text-light: #222;
+  --card-bg: rgba(0,0,0,0.05);
+  --primary-color: #e60000;
+}
+.light-mode header,
+.light-mode footer {
+  background: rgba(255,255,255,0.7) !important;
+  backdrop-filter: blur(15px);
+}
+.light-mode nav li a {
+  color: #222;
+}
+.light-mode .why-us__title,
+.light-mode p,
+.light-mode span {
+  color: #222 !important;
+}
+.light-mode .faq-item {
+  background: rgba(0,0,0,0.05);
+}
+  .custom-card-section {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  max-width: 700px;
+  padding: 30px 25px;
+  text-align: center;
+  color: var(--text-light);
+  box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+  transition: 0.3s;
+}
+
+.custom-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 0, 60, 0.4);
+}
+
+.custom-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-family: "Cairo", sans-serif;
+}
+
+.custom-card p {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #ccc;
+}
+  header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* لوجو دائري */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%; /* يجعلها دائرية */
+  object-fit: cover;
+  padding: 3px;
+  background: #ffffff15; /* لمعة خفيفة */
+  border: 2px solid var(--primary-color); /* إطار دائري */
+  box-shadow: 0 0 10px #e6000055;
+}
+
+.logo-text {
+  font-weight: 700;
+  color: var(--primary-color); /* لون رسمي */
+  font-family: "Cairo", sans-serif;
+}
+  /* زر القائمة */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  color: var(--primary-color);
+  z-index: 2000;
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* القائمة الجانبية */
+.side-menu {
+  position: fixed;
+  top: -200px; /* تبدأ مخفية */
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(15px);
+  text-align: center;
+  padding: 20px 0;
+  transition: top 0.5s ease;
+  z-index: 1500;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.side-menu ul li {
+  margin: 15px 0;
+}
+.side-menu ul li a {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.side-menu ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* حالة ظهور القائمة */
+.side-menu.active {
+  top: 70px; /* أسفل النايف بار */
+}
 </style>
 </head>
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('light-mode');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menuToggle');
+  const sideMenu = document.getElementById('sideMenu');
+
+  menuToggle.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+    menuToggle.innerHTML = sideMenu.classList.contains('active') 
+      ? '<i class="fa-solid fa-xmark"></i>'
+      : '<i class="fa-solid fa-bars"></i>';
+  });
+});
+</script>
 <body>
 
 <header>
   <div class="container">
-    <div class="logo">تعليمي</div>
-    <nav>
-      <ul>
-        <li><a href="#">الرئيسية</a></li>
-        <li><a href="#">الدورات</a></li>
-        <li><a href="#">من نحن</a></li>
-        <li><a href="#">اتصل بنا</a></li>
-      </ul>
-    </nav>
-    <div class="auth-buttons">
-      <a href="#" class="btn-login">دخول</a>
-      <a href="#" class="btn-register">تسجيل</a>
-    </div>
-  </div>
-</header>
 
+    <div class="logo-wrapper">
+      <img src="https://files.catbox.moe/unil3u.jpg" alt="Apex Logo" class="logo-img">
+      <span class="logo-text">أكاديمية أبيكس</span>
+    </div>
+
+  </div>
+  <div class="menu-toggle" id="menuToggle">
+  <i class="fa-solid fa-bars"></i>
+</div>
+
+<!-- القائمة الجانبية -->
+<nav class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="#">تسجيل حساب جديد</a></li>
+    <li><a href="#">تسجيل دخول</a></li>
+  </ul>
+</nav>
+</header>
+  <!-- زر القائمة الجانبية -->
+
+<div class="theme-toggle" onclick="toggleTheme()">
+  <i class="fa-solid fa-sun"></i>
+</div>
 <section class="banner">
   <div>
     <h1>منصة تعليمي</h1>
@@ -427,55 +580,120 @@ footer {
     </div>
   </div>
 </section>
-
+<section class="custom-card-section">
+  <div class="custom-card">
+    <h3>نبذة عن المنصة</h3>
+    <p>
+      نحن نقدم محتوى تعليمي مميز للطلاب والمعلمين وأولياء الأمور،  
+      ونسعى لتطوير تجربة التعلم الإلكترونية بأفضل جودة ممكنة.
+    </p>
+  </div>
+</section>
 <section class="sections">
   <h2 class="section-title">الدورات المتاحة</h2>
   <div class="cards-container">
+
+    <!-- كورس فرونت اند كامل -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" loading="lazy" alt="دورة 1">
+      <img src="https://files.catbox.moe/pg8ze9.jpg" loading="lazy" alt="فرونت اند">
       <div class="card-body">
-        <h3>مقدمة في البرمجة</h3>
-        <p>تعلم أساسيات البرمجة بلغة بايثون من الصفر.</p>
+        <h3>كورس Front-End كامل</h3>
+        <p>تعلم HTML, CSS, JavaScript, React</p>
+        <p>بناء واجهات تفاعلية من الصفر</p>
         <a href="#"><i class="fa-solid fa-arrow-right"></i> عرض الدورة</a>
       </div>
     </div>
+
+    <!-- دروس لجميع الصفوف -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" loading="lazy" alt="دورة 2">
+      <img src="https://files.catbox.moe/y4770a.jpg" loading="lazy" alt="جميع الصفوف">
       <div class="card-body">
-        <h3>الرياضيات للمرحلة الثانوية</h3>
-        <p>شروحات كاملة لجميع دروس الرياضيات للثانوية.</p>
+        <h3>دروس لجميع الصفوف</h3>
+        <p>محتوى تعليمي كامل للمرحلة الابتدائية</p>
+        <p>الإعدادية والثانوية</p>
         <a href="#"><i class="fa-solid fa-arrow-right"></i> عرض الدورة</a>
       </div>
     </div>
+
+    <!-- كورسات انجليزي -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/3301/3301460.png" loading="lazy" alt="دورة 3">
+      <img src="https://files.catbox.moe/apnw5q.jpg" loading="lazy" alt="كورسات انجليزي">
       <div class="card-body">
-        <h3>اللغة الإنجليزية التفاعلية</h3>
-        <p>تعلم الإنجليزية بطريقة تفاعلية باستخدام فيديو وتمارين.</p>
+        <h3>كورسات اللغة الإنجليزية</h3>
+        <p>تعلم الإنجليزية بطريقة تفاعلية</p>
+        <p>فيديو وتمارين لجميع المستويات</p>
         <a href="#"><i class="fa-solid fa-arrow-right"></i> عرض الدورة</a>
       </div>
     </div>
+
+    <!-- كورسات باك اند قريبا -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" loading="lazy" alt="دورة 4">
+      <img src="https://files.catbox.moe/x96hfr.jpg" loading="lazy" alt="كورسات باك اند">
       <div class="card-body">
-        <h3>مهارات القرن 21</h3>
-        <p>دورة لتطوير مهارات التفكير والتواصل والابتكار.</p>
+        <h3>كورسات Back-End (قريبا)</h3>
+        <p>تعلم Node.js, PHP, قواعد البيانات</p>
+        <p>لتطوير السيرفرات والتطبيقات الديناميكية</p>
         <a href="#"><i class="fa-solid fa-arrow-right"></i> عرض الدورة</a>
       </div>
     </div>
+
   </div>
 </section>
-
+  
 <section class="faq">
   <h2>الأسئلة الشائعة</h2>
+
   <div class="faq-item">
-    <div class="faq-question">كيف يمكنني التسجيل؟</div>
-    <div class="faq-answer">يمكنك الضغط على زر "تسجيل" وملء بياناتك الشخصية لإنشاء حساب جديد.</div>
+    <div class="faq-question">كيف يمكنني إنشاء حساب على المنصة؟</div>
+    <div class="faq-answer">يمكنك الضغط على زر "تسجيل" وملء بياناتك الشخصية لإنشاء حساب جديد بسهولة.</div>
   </div>
+
   <div class="faq-item">
-    <div class="faq-question">هل الدورات مجانية؟</div>
-    <div class="faq-answer">نعم، جميع الدورات التفاعلية على المنصة مجانية تمامًا.</div>
+    <div class="faq-question">هل يجب دفع اشتراك للوصول إلى الدورات؟</div>
+    <div class="faq-answer">نعم، المنصة مدفوعة ويجب الاشتراك للوصول إلى جميع الدورات التفاعلية.</div>
   </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل يمكن للمعلمين إضافة محتوى جديد؟</div>
+    <div class="faq-answer">نعم، يمكن للمدرسين المعتمدين إضافة دورات ودروس جديدة للمنصة.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل يمكن الوصول إلى الدروس بعد انتهاء الاشتراك؟</div>
+    <div class="faq-answer">بعد انتهاء الاشتراك، لن تتمكن من الوصول إلى الدروس إلا إذا جددت اشتراكك.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل أحصل على شهادة بعد إتمام الدورة؟</div>
+    <div class="faq-answer">نعم، بعد إتمام الدورة بنجاح، يمكنك الحصول على شهادة رسمية تثبت مهاراتك.</div>
+  </div>
+
+  <!-- أسئلة جديدة شائعة -->
+  <div class="faq-item">
+    <div class="faq-question">هل يمكن متابعة الدروس على الهاتف أو التابلت؟</div>
+    <div class="faq-answer">نعم، المنصة متوافقة مع جميع الأجهزة الذكية لتسهيل التعلم من أي مكان.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل يمكن استرجاع الأموال إذا لم أكن راضيًا؟</div>
+    <div class="faq-answer">نعم، توفر المنصة سياسة استرجاع مرنة وفق شروط الاشتراك.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل يمكن تحميل الدروس لمشاهدتها بدون إنترنت؟</div>
+    <div class="faq-answer">نعم، بعض الدورات تتيح تحميل الفيديوهات لمراجعتها لاحقًا بدون اتصال بالإنترنت.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل يمكن مشاركة الدورات مع الأصدقاء؟</div>
+    <div class="faq-answer">لا، كل حساب مرتبط بالاشتراك الشخصي، ولا يمكن مشاركة محتوى الدورات إلا عبر روابط مرخصة من المنصة.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">هل تقدم المنصة دعمًا فنيًا عند وجود مشكلة؟</div>
+    <div class="faq-answer">نعم، يمكنك التواصل مع فريق الدعم الفني في أي وقت لحل أي مشكلة تواجهك.</div>
+  </div>
+
 </section>
 
 <footer>
